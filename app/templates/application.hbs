@@ -1,5 +1,13 @@
-{{page-title "RockAndRollWithEmber"}}
-
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+<ul>
+  {{#each
+    (array
+      (hash title='State of the art' author='Robert Charles Wilson' rating='3' year='1986')
+      (hash title='The Infinite Assassin' author='Greg Egan' rating='4' year='1991')
+      (hash title='Liking what you see, a documentary' author='Ted Chiang' rating='5' year='2002')
+    ) as |story|
+  }}
+    <li>
+      [{{story.year}}] {{story.title}} by {{story.author}} ({{story.rating}})
+    </li>
+  {{/each}}
+</ul>
