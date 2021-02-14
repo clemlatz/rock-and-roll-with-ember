@@ -1,24 +1,16 @@
 <div class="bg-blue-800 text-gray-100 p-8 h-screen">
   <div class="mx-auto mb-4">
     <div class="h-12 flex items-center mb-4 border-b-2">
-      <a href="#">
+      <LinkTo @route="application">
         <h1 class="font-bold text-2xl">
-          Rock & Roll <span class="font-normal">on Octane</span>
+          Sci-Fi Short Stories <span class="font-normal">on Octane</span>
         </h1>
-      </a>
+      </LinkTo>
     </div>
-    <ul>
-      {{#each
-        (array
-          (hash title='State of the art' author='Robert Charles Wilson' rating='3' year='1986')
-          (hash title='The Infinite Assassin' author='Greg Egan' rating='4' year='1991')
-          (hash title='Liking what you see, a documentary' author='Ted Chiang' rating='5' year='2002')
-        ) as |story|
-      }}
-        <li class="leading-loose">
-          [{{story.year}}] {{story.title}} by {{story.author}} <span class="float-right">{{story.rating}}</span>
-        </li>
-      {{/each}}
-    </ul>
+    <nav class="h-8 flex items-center mb-8" role="navigation">
+      <LinkTo class="hover:text-gray-500" @route="authors">Authors</LinkTo>
+      <LinkTo class="hover:text-gray-500 ml-4" @route="stories">Stories</LinkTo>
+    </nav>
+    {{outlet}}
   </div>
 </div>

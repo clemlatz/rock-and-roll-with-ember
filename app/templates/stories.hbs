@@ -1,0 +1,15 @@
+{{page-title "Stories"}}
+
+<ul>
+  {{#each
+    (array
+      (hash title='State of the art' author='Robert Charles Wilson' rating='3' year='1986')
+      (hash title='The Infinite Assassin' author='Greg Egan' rating='4' year='1991')
+      (hash title='Liking what you see, a documentary' author='Ted Chiang' rating='5' year='2002')
+    ) as |story|
+  }}
+    <li class="leading-loose">
+      [{{story.year}}] <strong>{{story.title}}</strong> by {{story.author}} <span class="float-right">{{story.rating}}</span>
+    </li>
+  {{/each}}
+</ul>
