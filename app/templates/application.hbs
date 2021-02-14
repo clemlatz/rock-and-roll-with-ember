@@ -7,10 +7,8 @@
         </h1>
       </LinkTo>
     </div>
-    <nav class="h-8 flex items-center mb-8" role="navigation">
-      <LinkTo class="hover:text-gray-500" @route="authors">Authors</LinkTo>
-      <LinkTo class="hover:text-gray-500 ml-4" @route="stories">Stories</LinkTo>
-    </nav>
-    {{outlet}}
+    <div class="flex flex-wrap -mx-2">
+      {{outlet}}
+    </div>
   </div>
 </div>

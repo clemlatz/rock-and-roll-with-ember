@@ -1,0 +1,15 @@
+{{#if @model.length}}
+  <ul>
+    {{#each @model as |story|}}
+      <li class="mb-2">
+        [{{story.year}}]
+        {{story.title}}
+        <span class="float-right">{{story.rating}}</span>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p class="text-center">
+    This author has no stories yet.
+  </p>
+{{/if}}
