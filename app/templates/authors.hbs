@@ -1,2 +1,5 @@
 {{page-title "Authors"}}
-{{outlet}}
+
+{{#each @model as |band|}}
+  <li>{{band.name}}</li>
+{{/each}}
