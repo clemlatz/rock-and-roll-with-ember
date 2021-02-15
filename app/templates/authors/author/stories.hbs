@@ -4,7 +4,12 @@
       <li class="mb-2">
         [{{story.year}}]
         {{story.title}}
-        <span class="float-right">{{story.rating}}</span>
+        <span class="float-right">
+          <StarRating
+            @rating={{story.rating}}
+            @onUpdate={{set story "rating"}}
+          />
+        </span>
       </li>
     {{/each}}
   </ul>
