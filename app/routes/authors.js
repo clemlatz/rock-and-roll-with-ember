@@ -4,6 +4,7 @@ import { tracked } from '@glimmer/tracking';
 class Author {
   @tracked firstName;
   @tracked lastName;
+  @tracked stories;
 
   constructor({ firstName, lastName, slug, stories }) {
     this.firstName = firstName;
@@ -17,7 +18,7 @@ class Author {
   }
 }
 
-class Story {
+export class Story {
   constructor({ title, year, rating, author }) {
     this.title = title;
     this.year = year;

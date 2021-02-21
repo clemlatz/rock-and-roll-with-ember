@@ -1,6 +1,53 @@
-{{#if @model.length}}
+{{page-title @model.name "'s stories | SciFi Short Stories with Octane" replace=true}}
+
+{{#if this.isAddStoryFormDisplayed}}
+  <div class="mt-6 flex justify-end mb-10">
+    <form {{on "submit" this.createStory}}>
+      <input
+        type="text"
+        class="text-gray-800 bg-white rounded-md py-2 px-4 mr-2"
+        placeholder="Title"
+        value={{this.newStoryTitle}}
+        {{on "input" this.updateNewStoryTitle}}
+      />
+      <input
+        type="number"
+        class="text-gray-800 bg-white rounded-md py-2 px-4 mr-2"
+        placeholder="Year"
+        value={{this.newStoryYear}}
+        {{on "input" this.updateNewStoryYear}}
+      />
+      <button
+        type="button"
+        class="px-4 py-2 rounded bg-blue-600 shadow-md hover:shadow-lg hover:text-white hover:bg-blue-700"
+        {{on "click" this.createStory}}
+      >
+        Save
+      </button>
+      <button
+        type="button"
+        class="ml-2 px-4 p-2 rounded bg-white border border-bg-red-600 shadow-md text-red-600 hover:shadow-lg hover:bg-gray-100"
+        {{on "click" this.cancelStoryCreation}}
+      >
+        Cancel
+      </button>
+    </form>
+  </div>
+{{else}}
+  <div class="flex justify-end mt-2 mb-10">
+    <button
+      type="button"
+      class="px-4 py-2 rounded bg-blue-600 shadow-md hover:shadow-lg hover:text-white hover:bg-blue-700"
+      {{on "click" (set this "isAddStoryFormDisplayed" true)}}
+    >
+      Add story
+    </button>
+  </div>
+{{/if}}
+
+{{#if @model.stories.length}}
   <ul>
-    {{#each @model as |story|}}
+    {{#each @model.stories as |story|}}
       <li class="mb-2">
         [{{story.year}}]
         {{story.title}}
