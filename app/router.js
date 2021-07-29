@@ -11,5 +11,6 @@ Router.map(function () {
     this.route('author', { path: ':slug' }, function () {
       this.route('stories');
     });
+    this.route('new');
   });
 });
